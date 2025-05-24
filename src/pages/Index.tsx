@@ -18,6 +18,7 @@ const Index = () => {
     abstract: '',
     keywords: [],
     sections: {},
+    sectionImages: {},
     references: [],
     output: 'PDF',
     paperSize: 'A4',
@@ -35,9 +36,9 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gray-950 text-gray-100">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 shadow-sm">
+      <header className="bg-gray-900 border-b border-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -45,12 +46,12 @@ const Index = () => {
                 <FileText className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Research Paper Formatter</h1>
-                <p className="text-sm text-gray-600">Smart academic paper formatting & enhancement</p>
+                <h1 className="text-2xl font-bold text-white">Research Paper Formatter</h1>
+                <p className="text-sm text-gray-400">Smart academic paper formatting & enhancement</p>
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="border-gray-600 text-gray-300 hover:bg-gray-800">
                 <Settings className="h-4 w-4 mr-2" />
                 Settings
               </Button>
@@ -68,10 +69,10 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Left Sidebar - Style Selection */}
           <div className="lg:col-span-1">
-            <Card className="sticky top-8">
+            <Card className="sticky top-8 bg-gray-900 border-gray-700">
               <CardHeader>
-                <CardTitle className="text-lg">Format Style</CardTitle>
-                <CardDescription>Select your target journal or conference</CardDescription>
+                <CardTitle className="text-lg text-gray-100">Format Style</CardTitle>
+                <CardDescription className="text-gray-400">Select your target journal or conference</CardDescription>
               </CardHeader>
               <CardContent>
                 <StyleSelector 
@@ -85,12 +86,12 @@ const Index = () => {
           {/* Main Content Area */}
           <div className="lg:col-span-3">
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-6">
-                <TabsTrigger value="input" className="flex items-center space-x-2">
+              <TabsList className="grid w-full grid-cols-2 mb-6 bg-gray-800 border-gray-700">
+                <TabsTrigger value="input" className="flex items-center space-x-2 data-[state=active]:bg-gray-700 text-gray-300">
                   <FileText className="h-4 w-4" />
                   <span>Input & Edit</span>
                 </TabsTrigger>
-                <TabsTrigger value="preview" className="flex items-center space-x-2">
+                <TabsTrigger value="preview" className="flex items-center space-x-2 data-[state=active]:bg-gray-700 text-gray-300">
                   <Sparkles className="h-4 w-4" />
                   <span>Preview & Generate</span>
                 </TabsTrigger>

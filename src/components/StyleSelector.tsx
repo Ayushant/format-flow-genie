@@ -18,7 +18,7 @@ const styleConfigs: Record<PaperStyle, StyleConfig> = {
     lineHeight: '12pt',
     margins: '0.75in',
     referenceStyle: 'Numbered',
-    color: 'bg-blue-100 border-blue-300'
+    color: 'bg-blue-900/30 border-blue-500'
   },
   Scopus: {
     name: 'Scopus',
@@ -28,7 +28,7 @@ const styleConfigs: Record<PaperStyle, StyleConfig> = {
     lineHeight: '1.5',
     margins: '1in',
     referenceStyle: 'APA',
-    color: 'bg-orange-100 border-orange-300'
+    color: 'bg-orange-900/30 border-orange-500'
   },
   Springer: {
     name: 'Springer',
@@ -38,7 +38,7 @@ const styleConfigs: Record<PaperStyle, StyleConfig> = {
     lineHeight: '13pt',
     margins: '1in',
     referenceStyle: 'Numbered',
-    color: 'bg-green-100 border-green-300'
+    color: 'bg-green-900/30 border-green-500'
   },
   Elsevier: {
     name: 'Elsevier',
@@ -48,7 +48,7 @@ const styleConfigs: Record<PaperStyle, StyleConfig> = {
     lineHeight: '1.5',
     margins: '1in',
     referenceStyle: 'APA',
-    color: 'bg-red-100 border-red-300'
+    color: 'bg-red-900/30 border-red-500'
   },
   ACM: {
     name: 'ACM',
@@ -58,7 +58,7 @@ const styleConfigs: Record<PaperStyle, StyleConfig> = {
     lineHeight: '11pt',
     margins: '0.75in',
     referenceStyle: 'Numbered',
-    color: 'bg-purple-100 border-purple-300'
+    color: 'bg-purple-900/30 border-purple-500'
   },
   APA: {
     name: 'APA',
@@ -68,7 +68,7 @@ const styleConfigs: Record<PaperStyle, StyleConfig> = {
     lineHeight: '2.0',
     margins: '1in',
     referenceStyle: 'Author-Date',
-    color: 'bg-indigo-100 border-indigo-300'
+    color: 'bg-indigo-900/30 border-indigo-500'
   }
 };
 
@@ -78,19 +78,19 @@ const StyleSelector: React.FC<StyleSelectorProps> = ({ selectedStyle, onStyleCha
       {Object.entries(styleConfigs).map(([key, config]) => (
         <Card 
           key={key}
-          className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
-            selectedStyle === key ? config.color + ' ring-2 ring-offset-2' : 'hover:bg-gray-50'
+          className={`cursor-pointer transition-all duration-200 hover:shadow-lg bg-gray-800 border-gray-700 hover:border-gray-600 ${
+            selectedStyle === key ? config.color + ' ring-2 ring-offset-2 ring-offset-gray-900' : ''
           }`}
           onClick={() => onStyleChange(key as PaperStyle)}
         >
           <CardContent className="p-4">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="font-semibold text-sm">{config.name}</h3>
+              <h3 className="font-semibold text-sm text-gray-100">{config.name}</h3>
               {selectedStyle === key && (
-                <Badge variant="default" className="text-xs">Selected</Badge>
+                <Badge variant="default" className="text-xs bg-blue-600">Selected</Badge>
               )}
             </div>
-            <p className="text-xs text-gray-600 mb-2">{config.description}</p>
+            <p className="text-xs text-gray-400 mb-2">{config.description}</p>
             <div className="space-y-1 text-xs text-gray-500">
               <div>Font: {config.fontFamily} {config.fontSize}</div>
               <div>References: {config.referenceStyle}</div>

@@ -11,6 +11,12 @@ export interface Author {
   email?: string;
 }
 
+export interface SectionImage {
+  url: string;
+  caption: string;
+  alt: string;
+}
+
 export interface PaperData {
   mode: PaperMode;
   style: PaperStyle;
@@ -19,6 +25,7 @@ export interface PaperData {
   abstract: string;
   keywords: string[];
   sections: Record<string, string>;
+  sectionImages: Record<string, SectionImage[]>;
   references: string[];
   output: OutputFormat;
   paperSize: PaperSize;
