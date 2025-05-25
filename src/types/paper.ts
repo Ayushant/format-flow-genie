@@ -41,4 +41,9 @@ export interface StyleConfig {
   margins: string;
   referenceStyle: string;
   color: string;
+  layout: string;
+  spacing: string;
+  headings?: string;
+  figures?: string;
+  pageNumbers?: string;
 }
